@@ -1,0 +1,23 @@
+{
+    "browser_specific_settings": {
+	"gecko": {
+	    "strict_min_version": "58.0a1"
+	}
+    },
+    "background": {
+	"scripts": ["tabs.js"]
+    },
+    "browser_action": {
+	"browser_style": true,
+	"default_title": "Media",
+	"default_popup": "tabs.html"
+    },
+    "description": "Media (yt) controller.",
+    "homepage_url": "https://github.com/garandria/media-controller",
+    "manifest_version": 2,
+    "name": "Media",
+    "permissions": [
+	"tabs"
+    ],
+    "version": "1.0"
+}
