@@ -19,3 +19,38 @@ function listTabs() {
 }
 
 document.addEventListener("DOMContentLoaded", listTabs);
+
+function getCurrentWindowTabs() {
+    return browser.tabs.query({currentWindow: true,
+			       url: "*://*.youtube.com/watch?*"});
+}
+
+document.addEventListener("click", (e) => {
+    function callOnActiveTab(callback) {
+	getCurrentWindowTabs().then((tabs) => {
+	    for (var tab of tabs) {
+		
+		if (tab.active) {
+		    callback(tab, tabs);
+		}
+	    }
+	});
+    }
+    if (e.target.classList.contains('switch-tabs')) {
+	var tabId = +e.target.getAttribute('href');
+	
+	browser.tabs.query({
+	    currentWindow: true
+	}).then((tabs) => {
+	    for (var tab of tabs) {
+		if (tab.id === tabId) {
+		    browser.tabs.update(tabId, {
+			active: true
+		    });
+		}
+	    }
+	});
+    }
+
+    e.preventDefault();
+});
