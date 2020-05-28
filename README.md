@@ -6,3 +6,6 @@ the media).
 
 I am not a JS developer, never had experience with it before so the
 code may be awfull.
+
+The code was originally an example of web extension from [this
+repo](https://github.com/mdn/webextensions-examples/tree/master/tabs-tabs-tabs).
